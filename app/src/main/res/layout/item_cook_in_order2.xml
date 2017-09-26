@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        tools:text="菜品名"/>
+
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:gravity="center_horizontal"
+        tools:text="数量"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="140dp"
+        android:gravity="center_horizontal"
+        tools:text="单价"/>
+
+    <TextView
+        android:id="@+id/total"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:gravity="center_horizontal"
+        tools:text="小计"/>
+
+</FrameLayout>

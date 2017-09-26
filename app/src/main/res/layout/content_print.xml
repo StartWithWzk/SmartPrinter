@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.qg.deprecated.ui.PrintPreviewActivity"
+    tools:showIn="@layout/activity_print_preview">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/company_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="外卖公司名称" />
+
+        <View style="@style/OrderLine" />
+
+        <TextView
+            android:id="@+id/client_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="商家名称" />
+
+        <View style="@style/OrderLine" />
+
+        <!--<TextView-->
+            <!--android:id="@+id/order_id"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="订单编号：XXXXXXXX" />-->
+
+        <TextView
+            android:id="@+id/order_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="下单时间：年/月/日 时:分:秒" />
+
+        <TextView
+            android:id="@+id/other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="备注：XXXXXXXX" />
+
+        <View style="@style/OrderLine" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="菜品名" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="120dp"
+                android:gravity="center_horizontal"
+                android:text="数量" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="180dp"
+                android:gravity="center_horizontal"
+                android:text="小计" />
+
+        </FrameLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="LinearLayoutManager"></android.support.v7.widget.RecyclerView>
+        <!--
+    "\t菜品名\t数量\t单价\t小计\n"
+    "XXXXXXXX\tX1\t20\t20\n"
+    "XXXXXXXX\tX1\t20\t20\n"
+    "XXXXXXXX\tX1\t20\t20\n"
+    "XXXXXXXX\tX1\t20\t20\n\n"
+
+    "\t\t\t合计\tXXX\n"
+    "\t\t\t折扣\tXXX\n"
+    "\t\t\t应付款\tXXX\n"
+    -->
+
+        <View style="@style/OrderLine" />
+
+        <TextView
+            android:id="@+id/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:text="餐盒费 XX\n配送费 XX\n折扣 XX\n合计 XX\n[付款状态]" />
+
+        <View style="@style/OrderLine" />
+
+        <TextView
+            android:id="@+id/user_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="顾客姓名：XXX\n送餐地址：XXX\n电话：XXX" />
+
+
+        <View style="@style/OrderLine" />
+
+        <TextView
+            android:id="@+id/other_client_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="附加商家信息(地址，店内电话等)" />
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
