@@ -189,7 +189,7 @@ public class GlobalEventManager {
                 break;
             }
             case OrderAcceptableResponse.TYPE_TOKEN: {
-                // 可接受订单应答
+                // 可接受发送订单应答
                 OrderAcceptableResponse response = OrderAcceptableResponse.bytesToResponse(readBytes);
                 if (!(device instanceof WifiDevice)) {
                     return;

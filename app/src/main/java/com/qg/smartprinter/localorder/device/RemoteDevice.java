@@ -99,6 +99,13 @@ public abstract class RemoteDevice {
         }
     }
 
+    /**
+     * 重要函数
+     * 默认设备是处于空闲状态，当订单发送完毕，finish()函数会重新设置设备为空闲，并且会调用
+     * DevicesManager.getInstance().nextOrder(this)，发送下一张订单
+     * @param order 订单
+     * @return 订单是否发送成功
+     */
     public boolean order(final BOrder order) {
         if (!isIdling()) {
             return false;
@@ -155,6 +162,7 @@ public abstract class RemoteDevice {
     }
 
     private int getIdlingDelay() {
+        // TODO: 2017/10/12 此处修改空闲时间。 
         int delay = (int) Math.ceil((float) mLastOrder.getBytesLength() / 1000);
         return delay <= 0 ? 1 : delay;
     }

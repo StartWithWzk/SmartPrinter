@@ -93,7 +93,7 @@ public class BOrder implements Serializable {
         position = BytesConvert.fill2BytesInt(START_ORDER, bytes, position);
         position = BytesConvert.fill2BytesInt(length, bytes, position);
         position = BytesConvert.fill4BytesLong(printerId, bytes, position);
-        position = BytesConvert.fill4BytesLong(stamp/1000, bytes, position);
+        position = BytesConvert.fill4BytesLong(stamp, bytes, position);
         position = BytesConvert.fill4BytesLong(orderNumber, bytes, position);
         position = BytesConvert.fill2BytesInt(bulkId, bytes, position);
         position = BytesConvert.fill2BytesInt(inNumber, bytes, position);
