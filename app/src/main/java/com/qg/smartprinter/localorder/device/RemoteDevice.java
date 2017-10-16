@@ -162,9 +162,9 @@ public abstract class RemoteDevice {
     }
 
     private int getIdlingDelay() {
-        // TODO: 2017/10/12 此处修改空闲时间。 
-        int delay = (int) Math.ceil((float) mLastOrder.getBytesLength() / 1000);
-        return delay <= 0 ? 1 : delay;
+//        int delay = (int) Math.ceil((float) mLastOrder.getBytesLength() / 1000);
+//        return delay <= 0 ? 1 : delay;
+        return 1;
     }
 
 
