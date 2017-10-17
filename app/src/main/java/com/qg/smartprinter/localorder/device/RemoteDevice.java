@@ -162,9 +162,8 @@ public abstract class RemoteDevice {
     }
 
     private int getIdlingDelay() {
-//        int delay = (int) Math.ceil((float) mLastOrder.getBytesLength() / 1000);
-//        return delay <= 0 ? 1 : delay;
-        return 1;
+        int delay = (int) Math.ceil((float) mLastOrder.getBytesLength() / 1000);
+        return delay <= 0 ? 1 : delay;
     }
 
 

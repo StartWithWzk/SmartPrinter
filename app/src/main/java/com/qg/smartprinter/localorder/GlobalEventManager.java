@@ -37,13 +37,9 @@ public class GlobalEventManager {
     }
 
     private GlobalEventManager() {
+
         RxBus.getDefault().asObservable()
-                .onBackpressureDrop(new Action1<Object>() {
-                    @Override
-                    public void call(Object o) {
-                        Log.e(TAG, "call: Lost!");
-                    }
-                })
+                .onBackpressureBuffer(20)
                 .observeOn(Injection.provideBaseSchedulerProvider().computation())
                 .subscribe(new Action1<Object>() {
                     @Override
@@ -100,6 +96,12 @@ public class GlobalEventManager {
         byte[] readBytes = e.getBytes();
         RemoteDevice device = e.getDevice();
         AbstractMessage abstractMessage = AbstractMessage.bytesToAbstractStatus(readBytes);
+
+//        try {
+//            Thread.sleep(5);
+//        } catch (Exception e2) {
+//            e2.printStackTrace();
+//        }
 
         switch (abstractMessage.getStatusToken()) {
             case BPrinterStatus.TYPE_TOKEN: {
