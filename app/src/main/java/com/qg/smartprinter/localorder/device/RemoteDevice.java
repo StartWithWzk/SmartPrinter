@@ -8,6 +8,7 @@ import com.qg.smartprinter.localorder.DevicesManager;
 import com.qg.smartprinter.localorder.PrinterService;
 import com.qg.smartprinter.localorder.device.socket.PrinterSocket;
 import com.qg.smartprinter.localorder.event.Events;
+import com.qg.smartprinter.localorder.messages.AbstractMessage;
 import com.qg.smartprinter.localorder.messages.BOrder;
 import com.qg.smartprinter.localorder.messages.BResponse;
 import com.qg.smartprinter.localorder.util.CheckSumException;
@@ -312,6 +313,8 @@ public abstract class RemoteDevice {
                     // Read from the InputStream
                     try {
                         buffer = readBytes();
+                        AbstractMessage abstractMessage = AbstractMessage.bytesToAbstractStatus(buffer);
+                        Log.d("GlobalEventManager", "状态(from RemoteDevice)：" + abstractMessage.getStatusToken());
                         RxBus.getDefault().post(new Events.ReadEvent(RemoteDevice.this, buffer));
                     } catch (CheckSumException e) {
                         // Check failed.

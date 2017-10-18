@@ -74,7 +74,7 @@ public class GlobalEventManager {
             Log.d(TAG, "processEvent: Connect");
         } else if (e instanceof ReadEvent) {
             processReadEvent((ReadEvent) e);
-            Log.d(TAG, "processEvent: ReadEvent" + DebugUtil.getBytesString(((ReadEvent) e).getBytes()));
+//            Log.d(TAG, "processEvent: ReadEvent" + DebugUtil.getBytesString(((ReadEvent) e).getBytes()));
         } else if (e instanceof ConnectionFailedEvent) {
             DevicesManager.getInstance().removeDevice(device);
             Log.d(TAG, "processEvent: Connect failed!");
@@ -96,13 +96,7 @@ public class GlobalEventManager {
         byte[] readBytes = e.getBytes();
         RemoteDevice device = e.getDevice();
         AbstractMessage abstractMessage = AbstractMessage.bytesToAbstractStatus(readBytes);
-
-//        try {
-//            Thread.sleep(5);
-//        } catch (Exception e2) {
-//            e2.printStackTrace();
-//        }
-
+        Log.d(TAG, "状态：" + abstractMessage.getStatusToken());
         switch (abstractMessage.getStatusToken()) {
             case BPrinterStatus.TYPE_TOKEN: {
                 // 打印机状态
@@ -178,6 +172,7 @@ public class GlobalEventManager {
                 // 应答
                 BResponse response = BResponse.bytesToResponse(readBytes);
 
+                Log.i(TAG, "重要信息：" + response.getResponseTypeString());
                 // 过滤Wifi非本机IP应答
                 if (device instanceof WifiDevice) {
                     int ip = ((WifiDevice) device).getIP();
@@ -191,6 +186,7 @@ public class GlobalEventManager {
                 break;
             }
             case OrderAcceptableResponse.TYPE_TOKEN: {
+                Log.d(TAG + "Mark", "send");
                 // 可接受发送订单应答
                 OrderAcceptableResponse response = OrderAcceptableResponse.bytesToResponse(readBytes);
                 if (!(device instanceof WifiDevice)) {
