@@ -356,9 +356,9 @@ public abstract class RemoteDevice {
             byte[] checkSignalBytes;
             checkSignalBytes = baos.toByteArray();
             Log.d(TAG, "ReadBytes: " + DebugUtil.getBytesString(checkSignalBytes));
-            if (0 != CheckSumUtil.checkSum(checkSignalBytes)) {
-                throw new CheckSumException("Checksum not true!", checkSignalBytes);
-            }
+//            if (0 != CheckSumUtil.checkSum(checkSignalBytes)) {
+//                throw new CheckSumException("Checksum not true!", checkSignalBytes);
+//            }
             return checkSignalBytes;
         }
 

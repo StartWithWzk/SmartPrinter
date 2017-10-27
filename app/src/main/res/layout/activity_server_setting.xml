@@ -28,6 +28,14 @@
         android:maxLines="1"
         android:singleLine="true"/>
 
+    <EditText
+        android:id="@+id/delay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Delay"
+        android:inputType="datetime"
+        android:maxLines="1"/>
+
 
     <Button
         android:id="@+id/ok"

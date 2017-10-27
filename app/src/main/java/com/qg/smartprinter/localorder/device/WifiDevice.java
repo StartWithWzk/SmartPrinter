@@ -9,6 +9,7 @@ import com.qg.smartprinter.localorder.device.socket.PrinterSocket;
 import com.qg.smartprinter.localorder.device.socket.TCPPrinterSocket;
 import com.qg.smartprinter.localorder.messages.BOrder;
 import com.qg.smartprinter.localorder.messages.WifiOrderRequest;
+import com.qg.smartprinter.ui.ServerSettingActivity;
 
 import java.io.IOException;
 
@@ -102,6 +103,13 @@ public class WifiDevice extends RemoteDevice implements Parcelable {
     public void notifySend() {
         if (mKeepOrder == null) {
             return;
+        }
+        try {
+            if (ServerSettingActivity.DELAY != 0) {
+                Thread.sleep(ServerSettingActivity.DELAY);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         // Send order.
         super.internalOrder(mKeepOrder);

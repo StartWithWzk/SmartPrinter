@@ -177,7 +177,7 @@ public abstract class PrinterTestFragment extends BaseFragment {
     }
 
     private static final AutoOrder[] DEFAULT_AUTO_ORDERS = {
-            new AutoOrder(1000, 1),
+            new AutoOrder(300, 20),
 //            new AutoOrder(2000, 4),
 //            new AutoOrder(4000, 4),
 //            new AutoOrder(10000, 2),
