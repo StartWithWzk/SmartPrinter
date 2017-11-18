@@ -12,12 +12,12 @@ public class FileLogNode extends LogWrapper {
 
     private static final String LOG_DIR = Environment
             .getExternalStorageDirectory().getPath()
+            + "/"
             + "QGProjects"
             + "/"
             + "SmartPrinter"
             + "/"
-            + "/log"
-            + "/";
+            + "log";
 
     /**
      * SD卡是否加载
@@ -67,7 +67,7 @@ public class FileLogNode extends LogWrapper {
             String pathName = LOG_DIR;
             String fileName = getFileName();
             File path = new File(pathName);
-            File file = new File(pathName + fileName);
+            File file = new File(path, fileName);
             if (!path.exists()) {
                 android.util.Log.d(TAG, "Create the path:" + pathName);
                 path.mkdirs();

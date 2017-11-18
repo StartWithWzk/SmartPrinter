@@ -34,14 +34,14 @@ public class CaughtExceptionActivity extends AppCompatActivity {
     public static final String EXTRA_THROWABLE = "THROWABLE";
     private static final String LOG_DIR = Environment
             .getExternalStorageDirectory().getPath()
+            + "/"
             + "QGProjects"
             + "/"
             + "SmartPrinter"
             + "/"
-            + "/log"
+            + "log"
             + "/"
-            + "Exception"
-            + "/";
+            + "Exception";
     private View mFinishButton;
     private View mSendButton;
 
@@ -113,10 +113,10 @@ public class CaughtExceptionActivity extends AppCompatActivity {
             android.util.Log.d(TAG, "Create the path:" + path);
             pathF.mkdirs();
         }
-        String fullName = path + FileLogNode.getFileName();
+        String fileName = FileLogNode.getFileName();
 
         // Extract to file.
-        File file = new File(fullName);
+        File file = new File(pathF, fileName);
         InputStreamReader reader = null;
         FileWriter writer = null;
         try {
@@ -164,6 +164,6 @@ public class CaughtExceptionActivity extends AppCompatActivity {
             return null;
         }
 
-        return fullName;
+        return file.toString();
     }
 }

@@ -28,8 +28,6 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Thread.UncaughtExceptionHandler defaultHandler = Thread.getDefaultUncaughtExceptionHandler();
-        Thread.setDefaultUncaughtExceptionHandler(new ExceptionHandler(defaultHandler, getApplicationContext()));
         Log.d(TAG, "onCreate: setDefaultUn");
     }
 

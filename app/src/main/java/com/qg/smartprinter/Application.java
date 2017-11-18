@@ -1,5 +1,6 @@
 package com.qg.smartprinter;
 
+import com.qg.common.caughtexception.ExceptionHandler;
 import com.qg.smartprinter.localorder.GlobalEventManager;
 import com.qg.smartprinter.localorder.OrderManager;
 import com.qg.smartprinter.localorder.PrinterService;
@@ -16,6 +17,10 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
+
+        // 绑定自定义异常处理器
+        ExceptionHandler.getINSTANCE(this);
+
         PrinterService.start(this);
 
         SharedPreferencesUtils spu = SharedPreferencesUtils.getInstance();
